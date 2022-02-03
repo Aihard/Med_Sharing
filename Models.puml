@@ -1,0 +1,48 @@
+@startuml
+class com.example.medshering.Models.AdPostId {
++ String adPostId
++ T withId(String)
+}
+class com.example.medshering.Models.AdPost {
++ String user_id
++ Date timestamp
++ String getUser_id()
++ void setUser_id(String)
++ String getTitle()
++ void setTitle(String)
++ String getDescription()
++ void setDescription(String)
++ String getContent()
++ void setContent(String)
++ String getImage()
++ void setImage(String)
++ String getThumb()
++ void setThumb(String)
++ Date getTimestamp()
++ void setTimestamp(Date)
+}
+class com.example.medshering.Models.User {
+- String first
++ String getFirst()
++ void setFirst(String)
++ String getLast()
++ void setLast(String)
++ String getImage()
++ void setImage(String)
++ String getBio()
++ void setBio(String)
+}
+class com.example.medshering.Models.Comments {
+- String message
+- Date timestamp
++ String getMessage()
++ void setMessage(String)
++ String getUser_id()
++ void setUser_id(String)
++ Date getTimestamp()
++ void setTimestamp(Date)
+}
+
+
+com.example.medshering.Models.AdPostId <|-- com.example.medshering.Models.AdPost
+@enduml

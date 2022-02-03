@@ -1,0 +1,29 @@
+@startuml
+class com.example.medshering.Activity.BottomNavigationViewHelper {
+~ {static} void removeShiftMode(BottomNavigationView)
+}
+class com.example.medshering.Activity.MainActivity {
+~ android.support.v7.widget.Toolbar mMainToolbar
+~ FirebaseAuth mAuth
+~ FirebaseFirestore mFirestore
++ {static} String currentUserId
+~ BottomNavigationView bottomNav
+~ HomeFragment homeFragment
+~ NotificationFragment notificationFragment
+~ AccountFragment accountFragment
++ {static} PostFragment adPostFragment
+# void onCreate(Bundle)
+# void onStart()
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
+- void sendToAddPost()
+- void sendToSettings()
+- void logOut()
+- void sendToLogin()
+- void replaceFragment(android.support.v4.app.Fragment,android.support.v4.app.Fragment)
+- void initializeFragment()
+}
+
+
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.MainActivity
+@enduml

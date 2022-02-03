@@ -1,0 +1,343 @@
+@startuml
+class com.example.medshering.Fragment.AnotherAccountFragment {
+~ FirebaseAuth mAuth
+~ FirebaseFirestore mFirestore
+~ String userId
+~ RecyclerView userAdListView
+~ List<AdPost> userAdList
+~ AnotherAccountAdRecycleAdapter anotherAccountAdRecycleAdapter
++ <<Create>> AnotherAccountFragment()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.medshering.Fragment.HomeFragment {
+~ FirebaseFirestore mFirestore
+~ FirebaseAuth mAuth
+~ RecyclerView homeListView
+~ List<AdPost> adList
+~ AdRecycleAdapter adRecycleAdapter
+~ List<User> userList
+~ DocumentSnapshot lastVisible
+~ Boolean isFirstPageFirstLoaded
++ <<Create>> HomeFragment()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void loadMorePost()
+}
+class com.example.medshering.Models.AdPostId {
++ String adPostId
++ T withId(String)
+}
+class com.example.medshering.Models.User {
+- String first
++ <<Create>> User()
++ <<Create>> User(String,String,String,String)
++ String getFirst()
++ void setFirst(String)
++ String getLast()
++ void setLast(String)
++ String getImage()
++ void setImage(String)
++ String getBio()
++ void setBio(String)
+}
+class com.example.medshering.Fragment.PostFragment {
+~ FirebaseAuth mAuth
+~ FirebaseFirestore mFirestore
+- CircleImageView userProfileImageView
+- TextView userNameView
+- TextView dateView
+- TextView titleView
+- ImageView ImageView
+- TextView descView
+- TextView contentView
+- ImageView likeBtn
+- TextView likeCounter
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void setUserData(String,String,String)
++ void setAdData(String,String,String,String,String)
+}
+class com.example.medshering.Activity.LoginActivity {
+~ EditText mEmail
+~ EditText mPassword
+~ Button mLoginBtn
+~ FirebaseAuth mAuth
+# void onCreate(Bundle)
++ void clickToRegister(View)
+- void sendToMain()
+}
+class com.example.medshering.Activity.CommentsActivity {
+- Toolbar commentToolbar
+- EditText comment_field
+- ImageView comment_post_btn
+- RecyclerView comment_list
+- CommentsRecyclerAdapter commentsRecyclerAdapter
+- List<Comments> commentsList
+- FirebaseFirestore firebaseFirestore
+- FirebaseAuth firebaseAuth
+- String ad_post_id
+- String current_user_id
+# void onCreate(Bundle)
+}
+class com.example.medshering.Models.Comments {
+- String message
+- Date timestamp
++ <<Create>> Comments()
++ <<Create>> Comments(String,String,Date)
++ String getMessage()
++ void setMessage(String)
++ String getUser_id()
++ void setUser_id(String)
++ Date getTimestamp()
++ void setTimestamp(Date)
+}
+class com.example.medshering.Adapter.CommentsRecyclerAdapter {
++ List<Comments> commentsList
++ Context context
+- FirebaseFirestore mFirestore
+- FirebaseAuth mAuth
++ <<Create>> CommentsRecyclerAdapter(List<Comments>)
++ CommentsRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(CommentsRecyclerAdapter.ViewHolder,int)
++ int getItemCount()
+}
+class com.example.medshering.Adapter.CommentsRecyclerAdapter.ViewHolder {
+- View mView
+- TextView comment_message
+- CircleImageView comment_image
+- TextView comment_username
++ <<Create>> ViewHolder(View)
++ void setComment_message(String)
++ void setUserData(String,String,String)
+}
+class com.example.medshering.Activity.RegisterActivity {
+~ EditText mEmail
+~ EditText mPassword
+~ EditText mConfirmPassword
+~ Button mRegisterBtn
+~ FirebaseAuth mAuth
+# void onCreate(Bundle)
+# void onStart()
+- void sendToMain()
+- void sendToSetup()
++ void clickToLogin(View)
+}
+class com.example.medshering.Fragment.NotificationFragment {
++ <<Create>> NotificationFragment()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.medshering.Adapter.AnotherAccountAdRecycleAdapter {
++ List<AdPost> userAdList
+- FirebaseAuth mAuth
+- FirebaseFirestore mFirestore
+- String anotherUserId
+- String currUserId
++ Context context
+~ int counterGlobal
++ <<Create>> AnotherAccountAdRecycleAdapter(List<AdPost>)
++ int getItemViewType(int)
++ RecyclerView.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(RecyclerView.ViewHolder,int)
++ int getItemCount()
++ void goToAdPostFragment(String,String,View)
+}
+class com.example.medshering.Adapter.AnotherAccountAdRecycleAdapter.ViewHolder {
+- View mView
+- TextView adTitleView
+- ImageView adImageView
+- TextView adDescView
++ <<Create>> ViewHolder(View)
++ void setAdData(String,String,String)
+}
+class com.example.medshering.Adapter.AnotherAccountAdRecycleAdapter.ViewHolderUserData {
+- View mView
+- CircleImageView userImageView
+- TextView userNameView
+- TextView userBioView
+- TextView userReadersCounter
+- ImageView userReadBtn
++ <<Create>> ViewHolderUserData(View)
++ void setUserData(String,String,String,String)
++ void setUserReadersCounter(String)
+}
+class com.example.medshering.Models.AdPost {
++ String user_id
++ Date timestamp
++ <<Create>> AdPost()
++ <<Create>> AdPost(String,String,String,String,String,String,Date)
++ String getUser_id()
++ void setUser_id(String)
++ String getTitle()
++ void setTitle(String)
++ String getDescription()
++ void setDescription(String)
++ String getContent()
++ void setContent(String)
++ String getImage()
++ void setImage(String)
++ String getThumb()
++ void setThumb(String)
++ Date getTimestamp()
++ void setTimestamp(Date)
+}
+class com.example.medshering.Adapter.AdRecycleAdapter {
++ List<AdPost> adList
++ List<User> userList
++ Context context
+- FirebaseFirestore mFirestore
+- FirebaseAuth mAuth
+~ Boolean currUserLiked
++ <<Create>> AdRecycleAdapter(List<AdPost>,List<User>)
++ void goToAdPostFragment(String,String,View)
++ void goToUserProfile(String,View)
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ViewHolder,int)
++ int getItemCount()
+}
+class com.example.medshering.Adapter.AdRecycleAdapter.ViewHolder {
+- View mView
+- TextView titleView
+- ImageView ImageView
+- TextView userNameView
+- CircleImageView userProfileImageView
+- ImageView likeBtn
+- ImageView commBtn
++ <<Create>> ViewHolder(View)
++ void setDescText(String)
++ void setTitleText(String)
++ void setAdImage(String,String)
++ void setTime(String)
++ void setUserData(String,String,String)
++ void updateLikeCounter(int)
+}
+class com.example.medshering.Activity.BottomNavigationViewHelper {
+~ {static} void removeShiftMode(BottomNavigationView)
+}
+class com.example.medshering.Activity.MainActivity {
+~ android.support.v7.widget.Toolbar mMainToolbar
+~ FirebaseAuth mAuth
+~ FirebaseFirestore mFirestore
++ {static} String currentUserId
+~ BottomNavigationView bottomNav
+~ HomeFragment homeFragment
+~ NotificationFragment notificationFragment
+~ AccountFragment accountFragment
++ {static} PostFragment PostFragment
+# void onCreate(Bundle)
+# void onStart()
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
+- void sendToAddPost()
+- void sendToSettings()
+- void logOut()
+- void sendToLogin()
+- void replaceFragment(android.support.v4.app.Fragment,android.support.v4.app.Fragment)
+- void initializeFragment()
+}
+class com.example.medshering.Fragment.AccountFragment {
+~ FirebaseAuth mAuth
+~ FirebaseFirestore mFirestore
+~ String currUserId
+~ RecyclerView userAdListView
+~ List<AdPost> userAdList
+~ AccountAdRecycleAdapter accountAdRecycleAdapter
++ <<Create>> AccountFragment()
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.medshering.Activity.NewPostActivity {
+~ android.support.v7.widget.Toolbar mToolbar
+~ TextView mChoosePhoto
+~ EditText mTitle
+~ EditText mDesc
+~ EditText mContent
+~ Button mAddBtn
+~ FirebaseAuth mAuth
+~ StorageReference mStorageRef
+~ FirebaseFirestore mFirestore
+~ Uri postImageUri
+~ String currUserId
+~ Bitmap compressedImageFile
+# void onCreate(Bundle)
+- void sendToMain()
+# void onActivityResult(int,int,Intent)
+}
+class com.example.medshering.Activity.SetupActivity {
+~ CircleImageView setupImage
+~ Uri imageUri
+~ EditText mFirstName
+~ EditText mLastName
+~ EditText mBio
+~ Button mSaveBtn
+~ FirebaseAuth mAuth
+~ StorageReference mStorageRef
+~ FirebaseFirestore mFirestore
+~ String firstName
+~ String lastName
+~ String biography
+~ String user_id
+~ boolean isImageChanged
+# void onCreate(Bundle)
+# void onActivityResult(int,int,Intent)
+- void popUpImagePicker()
+- void sendToMain()
+}
+class com.example.medshering.Adapter.AccountAdRecycleAdapter {
++ List<AdPost> userAdList
+- FirebaseAuth mAuth
+- FirebaseFirestore mFirestore
+- String currUserId
++ Context context
++ <<Create>> AccountAdRecycleAdapter(List<AdPost>)
++ int getItemViewType(int)
++ RecyclerView.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(RecyclerView.ViewHolder,int)
++ int getItemCount()
++ void goToAdFragment(String,String,View)
+}
+class com.example.medshering.Adapter.AccountAdRecycleAdapter.ViewHolderAd {
+- View mView
+- TextView adTitleView
+- ImageView adImageView
+- TextView adDescView
++ <<Create>> ViewHolderAd(View)
++ void setaddata(String,String,String)
+}
+class com.example.medshering.Adapter.AccountAdRecycleAdapter.ViewHolderUserData {
+- View mView
+- CircleImageView userImageView
+- TextView userNameView
+- TextView userBioView
+- TextView userReadersCounter
++ <<Create>> ViewHolderUserData(View)
++ void setUserData(String,String,String,String)
++ void setUserReadersCounter(String)
+}
+
+
+android.support.v4.app.Fragment <|-- com.example.medshering.Fragment.AnotherAccountFragment
+android.support.v4.app.Fragment <|-- com.example.medshering.Fragment.HomeFragment
+android.support.v4.app.Fragment <|-- com.example.medshering.Fragment.PostFragment
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.LoginActivity
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.CommentsActivity
+com.example.medshering.Adapter.Adapter <|-- com.example.medshering.Adapter.CommentsRecyclerAdapter
+com.example.medshering.Adapter.CommentsRecyclerAdapter +.. com.example.medshering.Adapter.CommentsRecyclerAdapter.ViewHolder
+com.example.medshering.Adapter.ViewHolder <|-- com.example.medshering.Adapter.CommentsRecyclerAdapter.ViewHolder
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.RegisterActivity
+android.support.v4.app.Fragment <|-- com.example.medshering.Fragment.NotificationFragment
+com.example.medshering.Adapter.Adapter <|-- com.example.medshering.Adapter.AnotherAccountAdRecycleAdapter
+com.example.medshering.Adapter.AnotherAccountAdRecycleAdapter +.. com.example.medshering.Adapter.AnotherAccountAdRecycleAdapter.ViewHolder
+com.example.medshering.Adapter.ViewHolder <|-- com.example.medshering.Adapter.AnotherAccountAdRecycleAdapter.ViewHolder
+com.example.medshering.Adapter.AnotherAccountAdRecycleAdapter +.. com.example.medshering.Adapter.AnotherAccountAdRecycleAdapter.ViewHolderUserData
+com.example.medshering.Adapter.ViewHolder <|-- com.example.medshering.Adapter.AnotherAccountAdRecycleAdapter.ViewHolderUserData
+com.example.medshering.Models.AdPostId <|-- com.example.medshering.Models.AdPost
+com.example.medshering.Adapter.Adapter <|-- com.example.medshering.Adapter.AdRecycleAdapter
+com.example.medshering.Adapter.AdRecycleAdapter +.. com.example.medshering.Adapter.AdRecycleAdapter.ViewHolder
+com.example.medshering.Adapter.ViewHolder <|-- com.example.medshering.Adapter.AdRecycleAdapter.ViewHolder
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.MainActivity
+android.support.v4.app.Fragment <|-- com.example.medshering.Fragment.AccountFragment
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.NewPostActivity
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.SetupActivity
+com.example.medshering.Adapter.Adapter <|-- com.example.medshering.Adapter.AccountAdRecycleAdapter
+com.example.medshering.Adapter.AccountAdRecycleAdapter +.. com.example.medshering.Adapter.AccountAdRecycleAdapter.ViewHolderAd
+com.example.medshering.Adapter.ViewHolder <|-- com.example.medshering.Adapter.AccountAdRecycleAdapter.ViewHolderAd
+com.example.medshering.Adapter.AccountAdRecycleAdapter +.. com.example.medshering.Adapter.AccountAdRecycleAdapter.ViewHolderUserData
+com.example.medshering.Adapter.ViewHolder <|-- com.example.medshering.Adapter.AccountAdRecycleAdapter.ViewHolderUserData
+@enduml

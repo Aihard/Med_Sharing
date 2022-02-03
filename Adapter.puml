@@ -1,0 +1,64 @@
+@startuml
+class com.example.medshering.Adapter.AdRecycleAdapter {
++ List<AdPost> adList
++ List<User> userList
++ Context context
+- FirebaseFirestore mFirestore
+- FirebaseAuth mAuth
+~ Boolean currUserLiked
++ void goToAdPostFragment(String,String,View)
++ void goToUserProfile(String,View)
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ViewHolder,int)
++ int getItemCount()
+}
+
+class com.example.medshering.Adapter.AnotherAccountAdRecycleAdapter {
++ List<AdPost> userAdList
+- FirebaseAuth mAuth
+- FirebaseFirestore mFirestore
+- String anotherUserId
+- String currUserId
++ Context context
+~ int counterGlobal
++ int getItemViewType(int)
++ RecyclerView.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(RecyclerView.ViewHolder,int)
++ int getItemCount()
++ void goToAdPostFragment(String,String,View)
+}
+
+class com.example.medshering.Adapter.AccountAdRecycleAdapter {
++ List<AdPost> userAdList
+- FirebaseAuth mAuth
+- FirebaseFirestore mFirestore
+- String currUserId
++ Context context
++ int getItemViewType(int)
++ RecyclerView.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(RecyclerView.ViewHolder,int)
++ int getItemCount()
++ void goToAdFragment(String,String,View)
+}
+
+class com.example.medshering.Adapter.CommentsRecyclerAdapter {
++ List<Comments> commentsList
++ Context context
+- FirebaseFirestore mFirestore
+- FirebaseAuth mAuth
++ CommentsRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(CommentsRecyclerAdapter.ViewHolder,int)
++ int getItemCount()
+}
+
+
+com.example.medshering.Adapter.Adapter <|-- com.example.medshering.Adapter.AdRecycleAdapter
+
+com.example.medshering.Adapter.Adapter <|-- com.example.medshering.Adapter.AnotherAccountAdRecycleAdapter
+
+com.example.medshering.Adapter.Adapter <|-- com.example.medshering.Adapter.AccountAdRecycleAdapter
+
+
+com.example.medshering.Adapter.Adapter <|-- com.example.medshering.Adapter.CommentsRecyclerAdapter
+
+@enduml

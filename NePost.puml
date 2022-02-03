@@ -1,0 +1,22 @@
+@startuml
+class com.example.medshering.Activity.NewPostActivity {
+~ android.support.v7.widget.Toolbar mToolbar
+~ TextView mChoosePhoto
+~ EditText mTitle
+~ EditText mDesc
+~ EditText mContent
+~ Button mAddBtn
+~ FirebaseAuth mAuth
+~ StorageReference mStorageRef
+~ FirebaseFirestore mFirestore
+~ Uri postImageUri
+~ String currUserId
+~ Bitmap compressedImageFile
+# void onCreate(Bundle)
+- void sendToMain()
+# void onActivityResult(int,int,Intent)
+}
+
+
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.NewPostActivity
+@enduml

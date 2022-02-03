@@ -1,0 +1,105 @@
+@startuml
+class com.example.medshering.Activity.RegisterActivity {
+~ EditText mEmail
+~ EditText mPassword
+~ EditText mConfirmPassword
+~ Button mRegisterBtn
+~ FirebaseAuth mAuth
+# void onCreate(Bundle)
+# void onStart()
+- void sendToMain()
+- void sendToSetup()
++ void clickToLogin(View)
+}
+class com.example.medshering.Activity.BottomNavigationViewHelper {
+~ {static} void removeShiftMode(BottomNavigationView)
+}
+class com.example.medshering.Activity.MainActivity {
+~ android.support.v7.widget.Toolbar mMainToolbar
+~ FirebaseAuth mAuth
+~ FirebaseFirestore mFirestore
++ {static} String currentUserId
+~ BottomNavigationView bottomNav
+~ HomeFragment homeFragment
+~ NotificationFragment notificationFragment
+~ AccountFragment accountFragment
++ {static} PostFragment PostFragment
+# void onCreate(Bundle)
+# void onStart()
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
+- void sendToAddPost()
+- void sendToSettings()
+- void logOut()
+- void sendToLogin()
+- void replaceFragment(android.support.v4.app.Fragment,android.support.v4.app.Fragment)
+- void initializeFragment()
+}
+class com.example.medshering.Activity.LoginActivity {
+~ EditText mEmail
+~ EditText mPassword
+~ Button mLoginBtn
+~ FirebaseAuth mAuth
+# void onCreate(Bundle)
++ void clickToRegister(View)
+- void sendToMain()
+}
+class com.example.medshering.Activity.CommentsActivity {
+- Toolbar commentToolbar
+- EditText comment_field
+- ImageView comment_post_btn
+- RecyclerView comment_list
+- CommentsRecyclerAdapter commentsRecyclerAdapter
+- List<Comments> commentsList
+- FirebaseFirestore firebaseFirestore
+- FirebaseAuth firebaseAuth
+- String ad_post_id
+- String current_user_id
+# void onCreate(Bundle)
+}
+class com.example.medshering.Activity.NewPostActivity {
+~ android.support.v7.widget.Toolbar mToolbar
+~ TextView mChoosePhoto
+~ EditText mTitle
+~ EditText mDesc
+~ EditText mContent
+~ Button mAddBtn
+~ FirebaseAuth mAuth
+~ StorageReference mStorageRef
+~ FirebaseFirestore mFirestore
+~ Uri postImageUri
+~ String currUserId
+~ Bitmap compressedImageFile
+# void onCreate(Bundle)
+- void sendToMain()
+# void onActivityResult(int,int,Intent)
+}
+class com.example.medshering.Activity.SetupActivity {
+~ CircleImageView setupImage
+~ Uri imageUri
+~ EditText mFirstName
+~ EditText mLastName
+~ EditText mBio
+~ Button mSaveBtn
+~ FirebaseAuth mAuth
+~ StorageReference mStorageRef
+~ FirebaseFirestore mFirestore
+~ String firstName
+~ String lastName
+~ String biography
+~ String user_id
+~ boolean isImageChanged
+# void onCreate(Bundle)
+# void onActivityResult(int,int,Intent)
+- void popUpImagePicker()
+- void sendToMain()
+}
+
+
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.RegisterActivity
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.MainActivity
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.LoginActivity
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.CommentsActivity
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.NewPostActivity
+android.support.v7.app.AppCompatActivity <|-- com.example.medshering.Activity.SetupActivity
+@enduml

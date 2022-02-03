@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "464583462807",
+    "firebase_url": "https://medsharing-5079f-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "medsharing-5079f",
+    "storage_bucket": "medsharing-5079f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464583462807:android:005df0a0c4f5c9e40b7ed2",
+        "android_client_info": {
+          "package_name": "com.example.medsharings"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464583462807-d0ccgc9cn6sr36e60nje6jie94urcefn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medsharings",
+            "certificate_hash": "3be11f5b97b3185381c0c219f52e6411eb1c51f6"
+          }
+        },
+        {
+          "client_id": "464583462807-dgjm9sepva5sibvj99oshtelnesuvcop.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA977F1Wz78vRsMMeiDTraLzJrT_GOiQ24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464583462807-dgjm9sepva5sibvj99oshtelnesuvcop.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464583462807:android:7c9fda3c3556038f0b7ed2",
+        "android_client_info": {
+          "package_name": "com.example.medshering"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464583462807-1ippfltet1p3domun9n09icqkrhboaje.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medshering",
+            "certificate_hash": "3be11f5b97b3185381c0c219f52e6411eb1c51f6"
+          }
+        },
+        {
+          "client_id": "464583462807-dgjm9sepva5sibvj99oshtelnesuvcop.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA977F1Wz78vRsMMeiDTraLzJrT_GOiQ24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464583462807-dgjm9sepva5sibvj99oshtelnesuvcop.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

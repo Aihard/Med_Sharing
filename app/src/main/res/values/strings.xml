@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">MedSharing</string>
+    <string name="login_page">Страница входа</string>
+    <string name="register_page">Страница регистрации</string>
+    <string name="email">Электронная почта</string>
+    <string name="password">Пароль</string>
+    <string name="confirm_password">Подтвердите пароль</string>
+    <string name="login_to_account">Войти</string>
+    <string name="go_to_login">Уже есть аккаунт?</string>
+    <string name="logo">logo</string>
+    <string name="to_register">Впервые здесь?</string>
+    <string name="action_search_text">Поиск</string>
+    <string name="action_account_settings">Настройки аккаунта</string>
+    <string name="action_logout_text">Выйти</string>
+    <string name="register_text">Регистрация</string>
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="biography">Не много о себе</string>
+    <string name="save_setting">Сохранить настройки</string>
+    <string name="choose_photo">Выберите фото</string>
+    <string name="add_title">Заголовок</string>
+    <string name="description">Краткое описание</string>
+    <string name="content">Подробное описание</string>
+    <string name="add_post">Добавить объявление</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_comment">Добавить комментарий</string>
+    <string name="readers">Молодец</string>
+    <string name="ad_post_date">Дата</string>
+    <string name="ad_title">Заголовок</string>
+</resources>

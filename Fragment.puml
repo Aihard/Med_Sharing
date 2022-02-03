@@ -1,0 +1,58 @@
+@startuml
+class com.example.medshering.Fragment.AnotherAccountFragment {
+~ FirebaseAuth mAuth
+~ FirebaseFirestore mFirestore
+~ String userId
+~ RecyclerView userAdListView
+~ List<AdPost> userAdList
+~ AnotherAccountAdRecycleAdapter anotherAccountAdRecycleAdapter
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.medshering.Fragment.HomeFragment {
+~ FirebaseFirestore mFirestore
+~ FirebaseAuth mAuth
+~ RecyclerView homeListView
+~ List<AdPost> adList
+~ AdRecycleAdapter adRecycleAdapter
+~ List<User> userList
+~ DocumentSnapshot lastVisible
+~ Boolean isFirstPageFirstLoaded
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void loadMorePost()
+}
+class com.example.medshering.Fragment.NotificationFragment {
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.medshering.Fragment.PostFragment {
+~ FirebaseAuth mAuth
+~ FirebaseFirestore mFirestore
+- CircleImageView userProfileImageView
+- TextView userNameView
+- TextView dateView
+- TextView titleView
+- ImageView ImageView
+- TextView descView
+- TextView contentView
+- ImageView likeBtn
+- TextView likeCounter
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void setUserData(String,String,String)
++ void setAdData(String,String,String,String,String)
+}
+class com.example.medshering.Fragment.AccountFragment {
+~ FirebaseAuth mAuth
+~ FirebaseFirestore mFirestore
+~ String currUserId
+~ RecyclerView userAdListView
+~ List<AdPost> userAdList
+~ AccountAdRecycleAdapter accountAdRecycleAdapter
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+
+
+android.support.v4.app.Fragment <|-- com.example.medshering.Fragment.AnotherAccountFragment
+android.support.v4.app.Fragment <|-- com.example.medshering.Fragment.HomeFragment
+android.support.v4.app.Fragment <|-- com.example.medshering.Fragment.NotificationFragment
+android.support.v4.app.Fragment <|-- com.example.medshering.Fragment.PostFragment
+android.support.v4.app.Fragment <|-- com.example.medshering.Fragment.AccountFragment
+@enduml
